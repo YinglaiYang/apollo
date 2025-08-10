@@ -1,12 +1,16 @@
-.tags li::before {
-  content: "🏷 ";
+/* Taxonomies for a post */
+.tags {
+  a::before {
+    content: "#";
+    display: inline;
+    white-space: nowrap !important;
+  }
 }
 
-.tags a {
-  border-bottom: 3px solid var(--primary-color);
-}
-
-.tags a:hover {
-  color: var(--hover_color);
-  background-color: var(--primary-color);
+.authors {
+  a::before {
+    content: "@";
+    display: inline;
+    white-space: nowrap !important;
+  }
 }

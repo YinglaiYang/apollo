@@ -5,73 +5,109 @@
   margin: 4rem 0px 1rem 0px;
 }
 
-.centered-header {
+/* 404 header */
+.not-found-header {
   font-family: var(--header-font);
-
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  font-size: 4em;
+  font-size: 3em;
 }
 
-header {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 1em 0;
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+
+    /* title and socials */
+    .left-nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.5rem;
+
+      .socials {
+        /* flex-container */
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: 6px;
+
+        .social img {
+          width: 16px;
+          height: 16px;
+
+        }
+
+        /* Don't display background on hover */
+        a:hover {
+            background-color: transparent;
+        }
+      }
+    }
+
+    /* navigation + theme toggle */
+    .right-nav {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+
+        #dark-mode-toggle {
+            margin-left: 0.5rem;
+            padding: 0.1rem;
+
+            > img {
+                width: 16px;
+                height: 16px;
+            }
+
+            /* Don't display background on hover */
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
 }
 
-header .main {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 1.5rem;
-
-  /* Otherwise header and menu is too close on small screens*/
-  margin-bottom: 10px;
-}
-
-.socials {
-  /* flex-child */
-  flex-grow: 0;
-  /* flex-container */
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-end;
-  gap: 6px;
-}
-
-.social {
+/* TODO: Is this still used? */
+.logo {
   border-bottom: unset;
   background-image: unset;
-  padding: 2px;
+
+  > img {
+    border: unset;
+    width: auto;
+    height: 24px;
+    vertical-align: middle;
+  }
+
+  &:hover {
+    background-color: transparent;
+  }
 }
 
-.social>img {
-  border: unset;
-  width: 24px;
-  height: 24px;
-
-}
-
+/* TODO: Is this still used? */
 .meta {
   color: #999;
-  letter-spacing: -0.5px;
-}
-
-#dark-mode-toggle>img {
-  display: none;
-  width: 15px;
-  height: 15px;
-  border: unset;
+  display: flexbox;
+  /* This changes the meta class to use flexbox, which ensures inline display */
+  align-items: center;
+  /* Aligns items vertically in the middle */
+  flex-wrap: wrap;
+  /* Allows items to wrap as needed */
 }
 
 h1,
@@ -80,6 +116,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: monospace var(--header-font);
   font-size: 1.2rem;
   margin-top: 2em;
 }

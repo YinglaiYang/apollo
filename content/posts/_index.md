@@ -1,6 +1,10 @@
 +++
 paginate_by = 7
-path = "posts"
 title = "Posts"
 sort_by = "date"
+
+insert_anchor_links = "heading"
+
+[extra]
+comment = true
 +++
